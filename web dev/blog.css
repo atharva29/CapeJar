@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html{
+  margin :  0 ;
+  padding: 0 ;
+}
+
+body{
+  font-family: 'Handlee',cursive;
+  font-size: 13pt ;
+  background-color: #efefeff;
+  padding: 10px ;
+  margin: 0 ;
+}
+
+h1 span {
+  border: 4px dashed #20bcd5 ;
+  padding: 10px ;
+}
+
+h1{
+  text-align: center;
+}
+
+table{
+  width: 90%;
+  font-size:15pt;
+  padding: 20px;
+}
+
+table,th ,td{
+  border :2px solid #cecece;
+  text-align: center;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.selected{
+  background-color: #f36f48;
+  font-weight: bold;
+  color: white;
+}
+
+.submit{
+  background-color: #3fb6b2;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  margin:0;
+  font-weight:bold;
+}
+
+.submit:hover{
+  background-color: #43a09d;
+}
+
+.section{
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.username{
+  text-align : center;
+  color : gray;
+}
+
+li{
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+progress{
+  width: 70%;
+  height: 20px;
+  color: #3fb6b2;
+  background: #efefef;
+}
+
+.form-style-self{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+form{
+  text-align: center;
+  margin-top: 0 ;
+  padding : 10px;
+}
+
+input,select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.copyright{
+  font-size: 10pt;
+  text-align: right;
+  padding-bottom: 10px;
+  color:grey;
+}

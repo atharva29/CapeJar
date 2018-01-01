@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scholarship4u</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+
+/*This part consist of properties of table */
+td , tr {
+  border: 1px solid black ;
+  padding: 10px ;
+  border-collapse:collapse;
+  }
+table#t1 {
+  width : 100%;
+  text-align: center;
+  border-collapse:collapse;
+  }
+table#t1 tr:nth-child(even) {
+      background-color: #eee;
+   }
+table#t1 tr:nth-child(odd) {
+     background-color:#fff;
+   }
+table#t1 th {
+    background-color: black;
+    color: white;
+    padding: 5px ;
+  }
+
+/*This is for header of Scholarship4u */
+h1 {
+  text-align: center;
+  background-color: Dodgerblue;
+  font-size: 80px;
+  color :black  ;
+  }
+/*This is for contact us information */
+p#contact {
+  background-color: tomato ;
+  }
+
+</style>
+
+<script>
+//javascript
+myfunc(){
+  document.getElementById('myImage').src= "baby.gif";
+  }
+</script>
+
+</head>
+<body>
+  <img id ="myImage" src="logo.png" width="100" height="100">
+<h1>Scholarship4u</h1>
+<div >
+<pre>
+<h2><em><b>
+  <q> You are the contributor of tomorrow .</q>
+</b></em></h2>
+</pre>
+</div>
+
+<hr>
+<table id=t1 class="table">
+<caption><h3> Scholarship  </h3></caption>
+<tr >
+  <th ><b>Sr No </b></th>
+  <th ><b>NAME</b></th>
+    <th><b>LOCATION </b></th>
+      <th><b>AMOUNT </b></th>
+        <th><b>ELIGIBLITY </b></th>
+</tr>
+
+<tr>
+<ol type = "i">
+  <td><li></li></td>
+  <td>LIONS CLUB</td>
+  <td>CHURCHGATE</td>
+  <td>5,000</td>
+  <td>80 %</td>
+</ol>
+</tr>
+
+<tr>
+<ol type = "i">
+  <td><li></li></td>
+  <td>JILLAN CLUB</td>
+  <td>DADAR</td>
+  <td>50,000</td>
+  <td>90 %</td>
+</ol>
+</tr>
+
+
+</table>
+<hr>
+<br>
+<p id=contact><em><b>contact us at : Atharva Ajgaonkar <br>
+phone no : 9323923022 <br>
+thank you</b></em></p>
+</body>
+</html>

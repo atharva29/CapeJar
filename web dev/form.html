@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head><title>Forms</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    .slogan{
+      background-color: #eee;
+      /*font-size: 40px ;*/
+      color: black;
+      padding: 20px;
+    }
+
+    .title{
+      background-color : Dodgerblue;
+      text-align: center;
+      font-size: 80px ;
+      color: black;
+    }
+
+    </style>
+  </head>
+<body>
+  <div class="container">
+  <!img src="workplace.jpg" alt = "workplace" width="1200px" height="400px">
+<h1 class = "title"> Scholarship4u </h1>
+<h3 class= "slogan"><b><i><q>You are the contributor of tomorrow</q></i></b> </h3>
+<form  method="post">
+  <fieldset>
+    <legend><h2>Personal information</h2></legend>
+<h3>First Name :</h3>
+<input type = "text" name = "firstname" autocomplete="on"><br>
+<h3>Email -id : </h3>
+<input type ="text" name = "email" autocomplete="on"><br>
+<h3>Password : </h3>
+<input type ="text" name = "email" autocomplete="off"><br>
+<h3>Male</h3>
+<input type="radio" name="gender" value ="male" checked>
+<h3>Female</h3>
+<input type="radio" name="gender" value ="female"><br>
+<input type = "submit" value= "Submit">
+  </fieldset>
+</form>
+</div>
+</body>
+</html>
