@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<style>
+	#map{
+	 height:500px;
+	 width:1000px;
+	}
+</style>
+</head>
+<body>
+<title> my lora app</title>
+<h3>welcome to the lora view</h3>
+<div id="map"></div>
+<script>
+
+	var ws = new WebSocket("ws://localhost:8090/v2/ws1")
+	ws.addEventListener("message",function(e){console.log(e);})
+</script>
+<script>
+function initMap(){
+  var options ={
+	zoom:8,
+	center:{lat:19.022,lng:72.8566} 
+	}
+  var mymap = new google.maps.Map(document.getElementById('map'),options);
+  var mymarker= new google.maps.Marker({
+
+	  position:{lat:19.02256,lng:72.8576},
+	  map:mymap
+	  })
+
+/*   var mymarker= new google.maps.Marker({position:{lat:19.02256,lng:72.8576},map:mymap});
+   var infoWindow=new google.maps.InfoWindow({
+	content:'<h3>vjtiquadleft</h3>'})
+   mymarker.addListener('click',function(){
+	infoWindow.open(mymap,mymarker);
+	}); */	
+/*
+var mymaru=[
+{
+	coordinates:{lat:19.0223,lng:72.8566},
+	content:'<h1>vjti dustebin</h1>',
+	iconimage:'./untitled.png'
+},
+{coordinates:{lat:19.0225,lng:72.8569}},
+{coordinates:{lat:19.0225,lng:72.8569}}
+
+];
+iconImage:'./untitled.png'*/
+
+myObj = {
+    
+    "loc": [
+        { "lat":19.2094, "lng":73.0939,"iconImage":"./untitled.png" },
+        { "content":"sion chi kundi","lat":19.0390, "lng":72.8619 },
+        { "content":"colaba chi kundi","lat":18.9067, "lng":72.8147 }
+    ]
+}
+
+for(i in myObj.loc){
+addMarker({Content:myObj.loc[i].content,iconImage:myObj.loc[i].iconImage,coordinates:{lat:myObj.loc[i].lat,lng:myObj.loc[i].lng}});
+}
+/*for(var i=0;i<mymaru.length;i++){
+addMarker(mymaru[i]);
+}
+*/
+
+/*
+
+addMarker({
+	coordinates:{lat:19.0223,lng:72.8566},
+	content:'<h1>vjti dustebin</h1>',
+	iconimage:'./untitled.png'
+});
+addMarker({coordinates:{lat:19.0225,lng:72.8569}});
+addMarker({coordinates:{lat:19.0227,lng:72.8568}});
+
+*/
+
+function addMarker(props){
+var mymaru = new google.maps.Marker({
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+	position:props.coordinates,
+	map:mymap,
+    icon:props.iconImage
+	});
+//mymaru.addListener('click',togglebounce)
+if(props.iconimage){
+mymaru.setIcon(props.iconimage);
+}
+
+if(props.Content){
+	var infoWindow=new google.maps.InfoWindow({
+	content:props.Content
+	});
+   mymaru.addListener('click',function(){
+	infoWindow.open(mymap,mymaru);
+	});
+}
+}
+/*
+function toggleBounce() {
+        if (mymaru.getAnimation() !== null) {
+         mymaru.setAnimation(null);
+        } else {
+          mymaru.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }*/
+} 
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiQXo7xneNgKwUa2aXLzV5b-d061u0oH8&callback=initMap">
+</script>
+</body>
+ </html> 
+ <!-- var ws = new WebSocket("ws://localhost:8000/v2/ws")
+ ws.onmessage=function(event){
+ console.log(event.data);
+ var coords=JSON.parse(event.data);
+ console.log(coords.Latitude); -->
