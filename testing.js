@@ -12,7 +12,7 @@ function main() {
 
 function initMap(info) {
   var options = {
-    zoom: 10,
+    zoom: 12,
     center: {
       lat: 19.022,
       lng: 72.856689
@@ -44,19 +44,19 @@ function initMap(info) {
   var myStr = {
 
     "loc": [{
-        "content": "<h1> VJTI chi Kachra Kundi </h1>",
+        "content": "<h3> VJTI chi Kachra Kundi </h3>",
         "lat": info.Lat,
         "lng": info.Lng,
         "iconImage": 'images/dustBlack.png'
       },
       {
-        "content": "<h1> DADAR chi Kachra Kundi </h1>",
+        "content": "<h3> DADAR chi Kachra Kundi </h3>",
         "lat": 19.0213,
         "lng": 72.84243,
         "iconImage": 'images/dustBlue.png'
       },
       {
-        "content": "<h1> DOMBIVLI chi Kachra Kundi </h1>",
+        "content": "<h3> DOMBIVLI chi Kachra Kundi </h3>",
         "lat": 19.0213,
         "lng": 72.86243,
         "iconImage": 'images/dustYellow.png'

@@ -41,6 +41,6 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/", simpleHandler)
 	router.HandleFunc("/ws1", handler)
-	router.PathPrefix("/").Handler(http.FileServer(http.Dir("E:/startbootstrap-sb-admin-master")))
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("/home/vjti/website/startbootstrap-sb-admin-gh-pages")))
 	http.ListenAndServe(":3000", router)
 }
