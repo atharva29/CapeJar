@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"runtime"
 	"time"
-
+		"log"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
 )
@@ -15,26 +17,33 @@ type data struct {
 	Color int     `json:""`
 }
 
+
 var upgrader = websocket.Upgrader{}
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	conn, _ := upgrader.Upgrade(w, r, nil)
-	go func(conn *websocket.Conn) {
+	num := runtime.NumGoroutine()
+	fmt.Println(num)
+	//defer conn.Close()
 		ch := time.Tick(5 * time.Second)
 		for range ch {
-			conn.WriteJSON(data{
+			conn.SetWriteDeadline(time.Now().Add(5 * time.Second))
+			err := conn.WriteJSON(data{
 				// Lat:    19.0274,
 				// Lng:    72.856689,
-				Lat:   18.9322,
-				Lng:   72.8264,
+				Lat:   19.022,
+				Lng:   72.856689,
 				Color: 0,
 			})
+			if err != nil {
+				log.Println("Error Writing",err)
+				return
+			}
 		}
-	}(conn)
 }
 
 func simpleHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "index.html")
+	http.ServeFile(w, r, "tables.html")
 }
 
 func main() {

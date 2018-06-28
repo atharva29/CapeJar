@@ -1,120 +1,59 @@
-function main() {
-  var ws = new WebSocket("ws://localhost:3000/ws1")
-  var info = {};
-  ws.onmessage = function(event) {
-    console.log(event.data);
-    info = JSON.parse(event.data);
-    console.log(info.Lat);
-    initMap(info)
+
+function addMarker(properties) {
+  var Color;
+  switch (properties.Color) {
+    case 1:
+      Color = "images/dustYellow.png"
+      break;
+    case 2:
+      Color = "images/dustbinBlue.png"
+      break;
+    case 3:
+      Color = "images/dustBlack.png"
+      break;
+    case 4:
+      Color = "images/dustRed.png"
+      break;
+    default:
   }
-}
-
-
-function initMap(info) {
-  var options = {
-    zoom: 12,
-    center: {
-      lat: 19.022,
-      lng: 72.856689
+  var markerVar = new google.maps.Marker({
+    position: {
+      lat: properties.Lat,
+      lng: properties.Lng
     },
-    mapTypeControlOptions: {
-      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-      mapTypeIds: ['roadmap', 'terrain', 'hybrid', 'satellite']
-    },
-    mapTypeControlOptions: {
-      style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-      position: google.maps.ControlPosition.TOP_CENTER
-    }
+    map: mapVar,
+    icon: Color
+  });
+  var infoWindow = new google.maps.InfoWindow({
+    content: properties.Message
+  });
+  if (properties.Message) {
+    markerVar.addListener('mouseover', function() {
+      infoWindow.open(mapVar, markerVar);
+    });
   }
-
-
-
-  // New Map
-  var map = new google.maps.Map(document.getElementById('map'), options);
-  //Listen for click on map
-  google.maps.event.addListener(map, 'click', function(event) {
-  //Add marker
-    addMarker({
-      coords: event.latLng
-    })
+  markerVar.addListener('mouseout', function() {
+    infoWindow.close(mapVar, markerVar);
   });
 
-  //Recieved object by Parsing String
-  //Following is JSON Object
-  var myStr = {
-
-    "loc": [{
-        "content": "<h3> VJTI chi Kachra Kundi </h3>",
-        "lat": info.Lat,
-        "lng": info.Lng,
-        "iconImage": 'images/dustBlack.png'
-      },
-      {
-        "content": "<h3> DADAR chi Kachra Kundi </h3>",
-        "lat": 19.0213,
-        "lng": 72.84243,
-        "iconImage": 'images/dustBlue.png'
-      },
-      {
-        "content": "<h3> DOMBIVLI chi Kachra Kundi </h3>",
-        "lat": 19.0213,
-        "lng": 72.86243,
-        "iconImage": 'images/dustYellow.png'
-      }
-    ]
-  }
-
-
-
-
-  //  Add markers by gettings data from JSON object
-  var m = 0;
-  for (var m in myStr.loc) {
-
-    var marker1 = {
-      coords: {
-        lat: myStr.loc[m].lat,
-        lng: myStr.loc[m].lng
-      },
-      content: myStr.loc[m].content,
-      iconImage: myStr.loc[m].iconImage
-    };
-
-    addMarker(marker1);
-  }
-
-
-  //Add marker Function
-
-  function addMarker(props) {
-    var marker = new google.maps.Marker({
-      position: props.coords,
-      map: map,
-      animation: google.maps.Animation.DROP
-
-    });
-
-    //Check content
-    if (props.content) {
-      var infoWindow = new google.maps.InfoWindow({
-        content: props.content,
-      });
-
-      marker.addListener('mouseover', function() {
-        infoWindow.open(map, marker, content);
-      });
-
-      marker.addListener('mouseout', function() {
-        infoWindow.close(map, marker, content);
-      });
-    }
-
-
-
-    //Check for custom icon image
-    if (props.iconImage) {
-      //Set Icon image
-      marker.setIcon(props.iconImage);
-    }
-  }
 }
+
+function initMap() {
+  var options = {
+    zoom: 8,
+    center: {
+      lat: 19.022,
+      lng: 72.856
+    }
+  }
+  mapVar = new google.maps.Map(document.getElementById('map'), options);
+  console.log(mapVar);
+}
+
+var mapVar;
+var ws = new WebSocket("ws://localhost:3000/ws1")
+ws.onmessage = function(event) {
+  var info = JSON.parse(event.data);
+  console.log(info);
+  addMarker(info);
+  }

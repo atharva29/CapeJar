@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>My Chart.js Chart</title>
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+
+
+
+  <script src="testing.js">
+  </script>
+
+<!--
+  <script>
+
+    var config = {
+      type: 'line',
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+          label: "My First dataset",
+          data: [65, 0, 80, 81, 56, 85, 40],
+          fill: false
+        }]
+      }
+    };
+
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myChart = new Chart(ctx, config);
+
+    function addData(lab ,dat) {
+      config.data.labels.push(lab);
+      config.data.datasets[0].data.push(dat);
+      myChart.update();
+    }
+    addData('Test',3);
+    addData('Test1',31);
+  </script> -->
+</body>
+
+</html>
