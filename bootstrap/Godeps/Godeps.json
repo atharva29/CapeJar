@@ -1,0 +1,17 @@
+{
+	"ImportPath": "bootstrap",
+	"GoVersion": "go1.10",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Comment": "v1.6.2-3-gcb46983",
+			"Rev": "cb4698366aa625048f3b815af6a0dea8aef9280a"
+		},
+		{
+			"ImportPath": "github.com/gorilla/websocket",
+			"Comment": "v1.2.0-44-g5ed622c",
+			"Rev": "5ed622c449da6d44c3c8329331ff47a9e5844f71"
+		}
+	]
+}
